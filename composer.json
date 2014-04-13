@@ -1,0 +1,23 @@
+{
+    "name": "cyantree/grout-rest-module",
+    "version": "1.0",
+    "type": "grout-module",
+    "description": "module which helps creating REST services",
+    "keywords": ["grout", "rest"],
+    "homepage": "https://github.com/cyantree/grout-rest-module",
+    "license": "LGPL-3.0",
+    "authors": [
+        {"name": "Christoph Schreiber", "email": "mail@cyantree.com"}
+    ],
+    "autoload": {
+        "psr-4": {
+            "Grout\\Cyantree\\RestModule\\": ["", "source/"]
+        }
+    },
+    "require": {
+        "cyantree/grout": "1.*"
+    },
+    "extra": {
+        "grout-module-name": "Cyantree/RestModule"
+    }
+}
