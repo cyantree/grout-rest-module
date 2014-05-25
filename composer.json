@@ -1,6 +1,6 @@
 {
     "name": "cyantree/grout-rest-module",
-    "version": "1.1",
+    "version": "1.2",
     "type": "grout-module",
     "description": "module which helps creating REST services",
     "keywords": ["grout", "rest"],
@@ -15,7 +15,7 @@
         }
     },
     "require": {
-        "cyantree/grout": ">=1.0,<3.0"
+        "cyantree/grout": ">=1.0,<4.0"
     },
     "extra": {
         "grout-module-name": "Cyantree/RestModule"
