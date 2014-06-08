@@ -19,11 +19,11 @@ class RestPage extends Page
     {
         $method = 'do' . substr($this->request()->method, 0, 1) . strtolower(substr($this->request()->method, 1));
 
-        if ($method == 'doPost' || $method == 'doPut') {
-            $data = json_decode(file_get_contents('php://input'), true);
+        if ($method == 'doGet' || $method == 'doTrace') {
+            $data = $this->task->request->get->getData();
 
         } else {
-            $data = $this->task->request->get->getData();
+            $data = json_decode(file_get_contents('php://input'), true);
         }
 
         if (json_last_error()) {
