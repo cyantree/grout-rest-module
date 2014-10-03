@@ -19,11 +19,11 @@ class RestPage extends Page
     {
         $method = 'do' . substr($this->request()->method, 0, 1) . strtolower(substr($this->request()->method, 1));
 
-        if ($method == 'doGet' || $method == 'doTrace') {
-            $data = $this->task->request->get->getData();
+        if ($method == 'doPost' || $method == 'doPut') {
+            $data = json_decode(file_get_contents('php://input'), true);
 
         } else {
-            $data = json_decode(file_get_contents('php://input'), true);
+            $data = $this->task->request->get->getData();
         }
 
         if (json_last_error()) {
@@ -31,8 +31,6 @@ class RestPage extends Page
         }
 
         $this->request = new ArrayFilter($data);
-
-//        }
 
         if (!$this->hasError && method_exists($this, $method)) {
             $this->{$method}();
