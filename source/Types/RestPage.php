@@ -7,8 +7,8 @@ use Cyantree\Grout\Filter\ArrayFilter;
 
 class RestPage extends Page
 {
-    private $_errors = array();
-    private $_responseCode = ResponseCode::CODE_200;
+    private $errors = array();
+    private $responseCode = ResponseCode::CODE_200;
 
     public $hasError = false;
 
@@ -40,7 +40,7 @@ class RestPage extends Page
         }
 
         if ($this->hasError) {
-            $this->setResult(json_encode($this->_errors), 'application/json', $this->_responseCode);
+            $this->setResult(json_encode($this->errors), 'application/json', $this->responseCode);
         }
     }
 
@@ -58,10 +58,10 @@ class RestPage extends Page
     public function postError($code = null, $message = null, $responseCode = '400 Bad Request')
     {
         if ($code) {
-            $this->_errors[$code] = $message;
+            $this->errors[$code] = $message;
         }
 
-        $this->_responseCode = $responseCode;
+        $this->responseCode = $responseCode;
         $this->hasError = true;
     }
 }
