@@ -16,10 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Grout\\Cyantree\\RestModule\\": [
-                "",
-                "source/"
-            ]
+            "Grout\\Cyantree\\RestModule\\": ""
         }
     },
     "require": {
