@@ -2,6 +2,7 @@
 namespace Grout\Cyantree\RestModule;
 
 use Cyantree\Grout\App\Module;
+use Cyantree\Grout\App\Task;
 use Grout\Cyantree\RestModule\Types\RestConfig;
 use Cyantree\Grout\App\Plugin;
 
@@ -23,7 +24,7 @@ class RestModule extends Module
         }
     }
 
-    public function initTask($task)
+    public function initTask(Task $task)
     {
         foreach ($this->plugins as $plugin) {
             $plugin->initTask($task);
@@ -31,14 +32,14 @@ class RestModule extends Module
     }
 
 
-    public function beforeParsing($task)
+    public function beforeParsing(Task $task)
     {
         if ($task->plugin) {
             $task->plugin->beforeParsing($task);
         }
     }
 
-    public function afterParsing($task)
+    public function afterParsing(Task $task)
     {
         if ($task->plugin) {
             $task->plugin->afterParsing($task);
